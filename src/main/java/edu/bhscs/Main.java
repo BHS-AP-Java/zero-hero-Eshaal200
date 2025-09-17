@@ -1,7 +1,7 @@
 // Eshaal Khan
 // P2
 // Zero-hero
-// 9/15/2025
+// 9/17/2025
 
 /*
  * DESCRIPTION: Finding something teresting in this code
@@ -16,35 +16,43 @@ package edu.bhscs;
 
 class Main {
 
+  public static final float  NAME_OF_THIS_FLOAT = 69.42f;
   public static final char A = 'a';
+
+  public static String pushup(String food) {
+    return "sweat" + food;
+  }
+
   public static void main(String[] args) {
-    int someNumber = 67;
-    System.out.println("67!" + A + someNumber);
-    System.out.println(A + "?" + A + someNumber);
-    System.out.println("A + A + someNumber");
+    System.out.println("A");
+    System.out.println(pushup("Garlic"));
+   System.out.println(pushup("Garlic"));
+   System.out.println(pushup("Garlic"));
+   System.out.println(pushup("Garlic"));
+   System.out.println(pushup("Garlic"));
     System.out.println("");
-    System.out.println("this is neet");
-    System.out.println("");
-    System.out.println("");
-     int funnyInterger = 21;
-
-  System.out.println( funnyInterger + A + someNumber);
-  // thats one fancy way to do some addition
-  //lets see another fancy way
-
-  float funnyNumbers = 21 + 87;
-  float thisjokeisOld = 69 * 69;
-  System.out.println();
-  System.out.println(funnyNumbers + thisjokeisOld + A + someNumber + A + funnyInterger);
-  System.out.println();
-
-  System.out.println("If the computer was human, it would be a human calculator :))))");
+    pushup("Garlic");
+    pushup("Garlic");
+    pushup("Garlic");
+    System.out.println();
+    pushup("Garlic");
+    pushup("Garlic");
+    pushup("Garlic");
+    pushup("Garlic");
+    pushup("Garlic");
+    pushup( "Garlic");
 
 
 
+Awesome steve = new Awesome("steve");
+Awesome sue = new Awesome("sue");
+Awesome linda = new Awesome("L");
+Awesome jhon = new Awesome("someonewithJh");
 
-  System.out.println("OK I am done");
-
+System.out.println(steve.getName() );
+System.out.println(sue.getName());
+System.out.println(linda.getName());
+System.out.println(jhon.getName());
 
 
 
