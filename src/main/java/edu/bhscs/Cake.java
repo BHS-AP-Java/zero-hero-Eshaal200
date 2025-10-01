@@ -14,8 +14,10 @@ public class Cake {
     this.frosting = false;
   }
 
+
+
   public void flavor() {
-    System.out.println("this cake has..." + flavor);
+    System.out.println("This cake was made with" + flour + "this cake has..." + flavor);
   }
 
   // time to bake :")"
