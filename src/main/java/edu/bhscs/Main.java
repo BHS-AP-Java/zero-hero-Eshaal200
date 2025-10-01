@@ -52,13 +52,15 @@ class Main {
     System.out.println();
     System.out.println();
     System.out.println();
+    // objects defined (characters)
     System.out.println("The baker is here time to make cakes!");
     Baker baker = new Baker("Mr. Smith");
     Customer aliyah = new Customer("aliyah");
     Customer jeanna = new Customer("jeanna");
     PTSA ptsa = new PTSA();
-    Cake chocolateCake = baker.bakeCake("Chocolate", 6);
-    Cake vanillaCake = baker.bakeCake("Vanilla", 8);
+    // baker baking cake (use terms)
+    Cake chocolateCake = baker.bakeCake("Chocolate", 6, 0, "vanilla", 0);
+    Cake vanillaCake = baker.bakeCake("Vanilla", 8, 0, "chocolate", 0);
     System.out.println("cakes has been made for eating!:");
     System.out.println();
     System.out.println("\n Press Enter to frost the cakes");
@@ -66,6 +68,7 @@ class Main {
     scanner.nextLine();
     chocolateCake.yummyFrosting();
     vanillaCake.yummyFrosting();
+    // customers eating cake (use terms)
     System.out.println("\n Munch on some slices......heh");
     scanner.nextLine();
     System.out.println();

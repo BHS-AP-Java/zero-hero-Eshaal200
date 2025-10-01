@@ -1,23 +1,31 @@
 package edu.bhscs;
 
 public class Cake {
-  // I have to make a constructor
+  // fields and properties
 
   public String flavor;
   public int slices;
-  Flour flour;
+  public String flour;
+  public int eggs;
+  public int milk;
+
   public boolean frosting;
 
-  public Cake(String flavor, int slices) {
+  // constructors
+
+  public Cake(String flavor, int eggs, int milk, String flour, int slices) {
     this.flavor = flavor;
-    this.slices = slices;
+    this.eggs = eggs;
+    this.milk = milk;
+    this.flour = flour;
     this.frosting = false;
+    this.slices = slices;
   }
 
 
 
   public void flavor() {
-    System.out.println("This cake was made with" + flour + "this cake has..." + flavor);
+    System.out.println( "this cake has..." + flavor);
   }
 
   // time to bake :")"
