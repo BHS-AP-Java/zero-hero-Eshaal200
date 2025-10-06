@@ -22,10 +22,8 @@ public class Cake {
     this.slices = slices;
   }
 
-
-
   public void flavor() {
-    System.out.println( "this cake has..." + flavor);
+    System.out.println("this cake has..." + flavor);
   }
 
   // time to bake :")"

@@ -8,7 +8,7 @@
  * INPUT: baking cool cakes
  * // code must contain a baker, a customer, and the dontation of money to PTSA
  * OUTPUT: some cakes that are gonna be comsumed
- * EDGE CASE: they all are all edge cases
+ * EDGE CASE: (I dont really understand what a edge case is :")")
  */
 // this is an example of 'char' constant
 // because it is global, it should be capitalised
@@ -23,31 +23,10 @@ class Main {
   //  return "sweat" + food;
   // }
 
+  // scanner input
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
-    // System.out.println("A");
-    // System.out.println(pushup("Garlic"));
-    // System.out.println(pushup("Garlic"));
-    // System.out.println(pushup("Garlic"));
-    // System.out.println(pushup("Garlic"));
-    // System.out.println(pushup("Garlic"));
-    // System.out.println("");
-    // System.out.println("chocolate");
 
-    // pushup("Garlic");
-    // pushup("Garlic");
-    // pushup("Garlic");
-    // System.out.println();
-    // pushup("Garlic");
-    // pushup("Garlic");
-    // pushup("Garlic");
-    // pushup("Garlic");
-    // pushup("Garlic");
-    // pushup("Garlic");
-
-    // Awesome steve = new Awesome("Steve");
-
-    // ignore all of this
 
     System.out.println();
     System.out.println();
@@ -58,9 +37,9 @@ class Main {
     Customer aliyah = new Customer("aliyah");
     Customer jeanna = new Customer("jeanna");
     PTSA ptsa = new PTSA();
-    // baker baking cake (use terms)
-    Cake chocolateCake = baker.bakeCake("Chocolate", 6, 0, "vanilla", 0);
-    Cake vanillaCake = baker.bakeCake("Vanilla", 8, 0, "chocolate", 0);
+    // using the baker class to execute making a cake
+    Cake chocolateCake = baker.bakeCake("Chocolate", 6, 3, "vanilla", 6);
+    Cake vanillaCake = baker.bakeCake("Vanilla", 8, 3, "chocolate", 5);
     System.out.println("cakes has been made for eating!:");
     System.out.println();
     System.out.println("\n Press Enter to frost the cakes");
@@ -68,7 +47,7 @@ class Main {
     scanner.nextLine();
     chocolateCake.yummyFrosting();
     vanillaCake.yummyFrosting();
-    // customers eating cake (use terms)
+    // using the type munchiesSlices to execute the class customers eating cake
     System.out.println("\n Munch on some slices......heh");
     scanner.nextLine();
     System.out.println();
