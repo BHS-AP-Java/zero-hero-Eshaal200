@@ -1,45 +1,49 @@
 package edu.bhscs;
 
-// this is the class baker, we want the baker to know who he is and how to make cake.
-// a class needs three things in it. Fields and properties, a constructor, and a method.
 public class Baker {
-  // fields and properties
-  // constructor
-  // methods
-
-  // this is the fields, we have public String fields of flavor and flour and name
-  // our ints are milk, slices, and eggs
+  // properties and fields
+  Player p;
+  Flour f;
+  Store placeOfWork;
+  int cash;
   String name;
-  public String flavor;
-  public int slices;
-  public String flour;
-  public int eggs;
-  public int milk;
+  int skill;
 
-  // we put the string name into a constructor, now name has the instructions of what it should do
-  public Baker(String name) {
-    this.name = name;
-    return;
+  // CONSTRUCTOR
+  Baker(Player p) {
+    this.p = p;
   }
 
-  // this is our method, we are giving life to our types, now they know what to do in the terminal.
-  // this is all done in a constructor, note: the types must go in the correct order that it was
-  // made in or else it will not wor
+  // METHODS
 
-  public Cake bakeCake(String flavor, int eggs, int milk, String frosting, int munchiesSlices) {
-    System.out.println(
-        name
-            + " baked a "
-            + flavor
-            + " cake with "
-            + munchiesSlices
-            + " slices! "
-            + "Made with.. "
-            + eggs
-            + " eggs "
-            + " and "
-            + milk
-            + " cups of milk ");
-    return new Cake(flavor, 2, 3, frosting, munchiesSlices);
+  void takeOrder(int price, Customer c) {
+    cash += c.pay(price);
+    c.takeCake(bakeCake());
+  }
+
+  public void learn(int amount) {
+    this.skill += amount;
+  }
+
+  Cake bakeCake() {
+    String answer = this.p.giveAnswer("what cake do you want?");
+
+    if (this.skill < 0) {
+      System.out.println("Sorry! you get a bad cake");
+    } else if (this.skill > 0) {
+      System.out.println("Wow! You get a great cake");
+    } else {
+      System.out.println("you get an okay cake");
+    }
+
+    return new Cake(answer, this.f, this.skill);
+  }
+
+  void takeJob(Store bakery) {
+    String doYouWantToWorkHere = this.p.giveAnswer("Do you want to work at " + bakery.getName());
+    if (doYouWantToWorkHere.equals("y")) {
+      this.placeOfWork = bakery;
+      System.out.println(this.name + " now works at " + bakery.getName());
+    }
   }
 }
