@@ -1,6 +1,6 @@
 package edu.bhscs;
 
-public class Cake {
+public class Cake2 {
   // fields and properties
 
   public String flavor;
@@ -15,7 +15,7 @@ public class Cake {
 
   // constructors
 
-  public Cake(String flavor, int eggs, int milk, String flour, int slices) {
+  public Cake2(String flavor, int eggs, int milk, String flour, int slices) {
     this.flavor = flavor;
     this.eggs = eggs;
     this.milk = milk;
@@ -32,7 +32,7 @@ public class Cake {
 
   // }
 
-  public Cake(String giveAnswer, Flour f, int skill) {}
+  public Cake2(String giveAnswer, Flour f, int skill) {}
 
   // METHODS
   void draw() {
@@ -76,14 +76,14 @@ public class Cake {
         "serving " + flavor + "cake! " + (frosting ? "with frosting " : "without frosting "));
   }
 
-  public Cake(String flavor, int slices, int qualityMultiplier) {
+  public Cake2(String flavor, int slices, int qualityMultiplier) {
     this.flavor = flavor;
     this.slices = slices;
     this.qualityMultiplier = qualityMultiplier;
     this.price = slices * 2 * qualityMultiplier;
   }
 
-  public Cake() {}
+  public Cake2() {}
 
   public String getflavor() {
     return flavor;

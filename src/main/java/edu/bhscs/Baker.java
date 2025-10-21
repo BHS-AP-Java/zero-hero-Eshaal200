@@ -25,7 +25,7 @@ public class Baker {
     this.skill += amount;
   }
 
-  Cake bakeCake() {
+  Cake2 bakeCake() {
     String answer = this.p.giveAnswer("what cake do you want?");
 
     if (this.skill < 0) {
@@ -36,7 +36,7 @@ public class Baker {
       System.out.println("you get an okay cake");
     }
 
-    return new Cake(answer, this.f, this.skill);
+    return new Cake2(answer, this.f, this.skill);
   }
 
   void takeJob(Store bakery) {
