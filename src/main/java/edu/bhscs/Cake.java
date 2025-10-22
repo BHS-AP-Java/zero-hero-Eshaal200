@@ -1,13 +1,21 @@
 package edu.bhscs;
 
 public class Cake {
+
+  // fields and properties
+
   String name;
   int age;
+  
+// constructor(?)
 
   public Cake(String name, int age) {
     this.name = name;
     this.age = age;
   }
+
+
+  // methods + start of cake drawing
 
   public void Cakedraw(String x, String y) {
     int width = 10 + age; // cake width depends on age
@@ -38,6 +46,7 @@ public class Cake {
     }
 
     // cake body
+
     for (int row = 0; row < height; row++) {
       System.out.print("*"); // left edge
 
@@ -53,6 +62,7 @@ public class Cake {
     }
 
     // cake bottpm
+
     for (int i = 0; i < width; i++) System.out.print("*");
     System.out.println();
 
@@ -67,4 +77,7 @@ public class Cake {
     for (int i = padding + text.length(); i < layerWidth; i++) sb.append(" ");
     return sb.toString();
   }
+
+  // middle of the cake
+
 }
