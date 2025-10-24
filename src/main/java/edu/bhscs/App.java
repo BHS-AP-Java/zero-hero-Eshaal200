@@ -1,7 +1,5 @@
 package edu.bhscs;
 
-import java.util.Scanner;
-
 public class App {
 
   // Eshaal Khan
@@ -37,6 +35,8 @@ public class App {
 
     // constructors
 
+    // DISCLAIMER --- yes I did use the lazy version of the scanner for this
+
     int age = 0;
 
     try {
@@ -52,29 +52,25 @@ public class App {
 
     myCake.Cakedraw(slicesEaten);
 
-    Scanner scanner = new Scanner(System.in);
+    // Scanner scanner = new Scanner(System.in);
 
     while (slicesEaten < fullHeight) {
-      System.out.print("\n press enter to eat a slice...");
-      scanner.nextLine();
+      System.out.println("\n press enter to eat a slice...");
+      String theStringINeed = "the user said something"; // scanner.nextLine();
       slicesEaten++;
 
-// slices getting eaten
+      // slices getting eaten
 
-    if (slicesEaten >= fullHeight){
-      System.out.println("\nOh no! You ate all the cake");
-      myCake.Cakedraw(fullHeight);
-      break;
+      if (slicesEaten >= fullHeight) {
+        System.out.println("\nOh no! You ate all the cake");
+        myCake.Cakedraw(fullHeight);
+        break;
 
-
+      } else {
+        myCake.Cakedraw(slicesEaten);
+      }
     }
-    else{
-      myCake.Cakedraw(slicesEaten);
-    }
 
+    // scanner.close();
   }
-
-  scanner.close();
-
-}
 }
