@@ -1,13 +1,6 @@
-// Student name
-// class period
-// project name
-// date
-
-/*
- * DESCRIPTION:
- * INPUT:
- * OUTPUT:
- * EDGE CASE:
- */
-
 package edu.bhscs;
+
+public class Main {
+
+  public static void main(String[] args) {}
+}
