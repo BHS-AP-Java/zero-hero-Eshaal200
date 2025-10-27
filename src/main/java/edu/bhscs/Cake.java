@@ -8,6 +8,10 @@ public class Cake {
   int age;
   String flavor;
   String icing;
+  String s;
+  int n;
+  int legs;
+  int width;
 
   // constructor(?)
 
@@ -16,6 +20,12 @@ public class Cake {
     this.age = age;
     this.flavor = flavor;
     this.icing = icing;
+  }
+
+  public Cake(String s , int n){
+    this.s = s;
+    this.n = n;
+
   }
 
   // methods + start of cake drawing
@@ -133,4 +143,17 @@ public class Cake {
 
     System.out.println("This cake is for... " + name + " who is " + age + " years old! ");
   }
+
+  public void draw(){
+    System.out.println("silly draw for Cake!");
+  }
+
+  public void draw(Table t){
+    this.draw();
+    t.draw(legs, width);
+
+  }
+
+
+
 }

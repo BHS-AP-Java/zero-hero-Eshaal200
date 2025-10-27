@@ -10,7 +10,16 @@ public class Baker {
   int skill;
 
   // CONSTRUCTOR
-  Baker(Player p) {
+public Baker(String name){
+  this.name = name;
+
+}
+
+
+
+
+
+  public Baker(Player p) {
     this.p = p;
   }
 
@@ -46,4 +55,12 @@ public class Baker {
       System.out.println(this.name + " now works at " + bakery.getName());
     }
   }
+
+  public Cake bakes(int age, String name){
+
+    return new Cake(name, age);
+
+  }
+
+
 }
