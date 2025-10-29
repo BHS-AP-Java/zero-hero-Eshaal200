@@ -1,5 +1,17 @@
 package edu.bhscs;
 
+// Eshaal Khan
+// P2
+// ITERATION
+// 10/28/2025
+
+/*
+ * DESCRIPTION: An iteration that prints out slices of cake (and quality of cake) based on what you want
+ * INPUT: number of slices, whatever baker you want
+ * OUTPUT: cake based off of slices and baker
+ * EDGE CASE: Quality?
+ */
+
 public class Cake2 {
   // fields and properties
 
@@ -104,66 +116,73 @@ public class Cake2 {
   // the draw method starts here :")
 
   public void Cakedraw() {
-    int baseWidth = slices * 2;
-    int height = qualityMultiplier * 2;
-    int cols = (baseWidth + 10) * 2;
-    int rows = height + 10;
+    int sliceWidth = 6;
+    int spacing = 2;
+    int triangleHeight = 3;
+    int bodyHeight = qualityMultiplier * 2;
 
-    char[][] canvas = new char[rows][cols];
+    int cols = slices * (sliceWidth * spacing);
+    int rows = triangleHeight + bodyHeight + 1;
+
+    char[][] canvas = new char [rows] [cols];
+
+    // 1. fill this canvas in with spaces
 
     for (int r = 0; r < rows; r++)
-      for (int c = 0; c < cols; c++)
-        canvas[r][c] =
-            ' '; // AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-    // anyways this makes rows
+       for ( int c = 0; c < cols; c++)
+          canvas[r][c] = ' ';
 
-    for (int sliceNum = 0; sliceNum < 2; sliceNum++) {
-      int sliceOffset = sliceNum * (baseWidth + 10); // horizontal hotdog style of both slices :P
+  // triangle tops (icing)
 
-      // frosting was a pain to code but was simplified
-      int frostingHeight = 3;
-      double m = -0.5;
-      int currentTopRow = 1;
-      int stepRightAnchor = baseWidth + sliceOffset - 1;
-      for (int f = 0; f < frostingHeight; f++) {
-        int width = baseWidth / 2 + f;
-        int xRight = stepRightAnchor;
-        int xLeft = Math.max(sliceOffset, xRight - width);
-        double b = currentTopRow - m * xRight;
-        for (int x = xLeft; x <= xRight; x++) {
-          int y = (int) Math.round(m * x + b);
-          if (y >= 0 && y < rows && x >= 0 && x < cols) {
-            canvas[y][x] = '/';
-          }
+  for(int s = 0; s < slices; s++){
+    int offset = s * (sliceWidth * spacing);
+
+    for(int t = 0; t < triangleHeight; t++){
+      int start = offset + triangleHeight - t - 1;
+        int end = offset + triangleHeight + t + 1;
+          for ( int c = start; c <= end && c < cols; c++ ){
+      canvas[t][c] = '/';
         }
 
-        currentTopRow++;
-        stepRightAnchor++;
-      }
-      // this is the body of the cake
-      int cakeTop = currentTopRow + 1;
-      int cakeBottom = cakeTop + height;
-      int leftEdge = sliceOffset + 2;
-      for (int r = cakeTop; r < cakeBottom && r < rows; r++)
-        for (int c = leftEdge; c < leftEdge + baseWidth && c < cols; c++) canvas[r][c] = '#';
-
-      // bottom part of the cake (with body)
-      int baseRow = Math.min(rows - 1, cakeBottom);
-      for (int c = leftEdge; c < leftEdge + baseWidth; c++) canvas[baseRow][c] = '=';
-
-      // right side of this cake (part of body)
-      for (int r = cakeTop - 1; r <= baseRow; r++) {
-        int wallCol = leftEdge + baseWidth;
-        if (wallCol < cols) canvas[r][wallCol] = '|';
-      }
-    }
-
-    // Print canvas
-    System.out.println(
-        "\n cake!!!!!  " + flavor.toUpperCase() + " yummy!! (" + slices + " slices each)");
-    for (int r = 0; r < rows; r++) {
-      for (int c = 0; c < cols; c++) System.out.print(canvas[r][c]);
-      System.out.println();
     }
   }
+
+  // draw the slices bodies
+
+  for (int s = 0; s < slices; s++){
+    int offset = s * (sliceWidth * spacing);
+    int topRow = triangleHeight;
+    int bottomRow = topRow + bodyHeight;
+
+
+    // bodiesssss
+
+    for (int r = topRow; r < bottomRow && r < rows; r++)
+      for ( int c = offset; c < offset + sliceWidth && c < cols; c++)
+      canvas [r] [c] = '#';
+
+      // bottom
+
+      for ( int c = offset; c < offset + sliceWidth && c < cols; c++)
+      canvas [bottomRow] [c] = '=';
+
+      // right wall
+
+      for ( int r = topRow; r <= bottomRow && r < rows; r++) {
+        int wallCol = offset + sliceWidth;
+        if (wallCol < cols) canvas[r][wallCol] = '|';
+      }
+  }
+
+  // print the cake
+     System.out.println("\nCake: " + flavor.toUpperCase() + " (" + slices + " slices, Q = " + qualityMultiplier + " )");
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) System.out.print(canvas[r][c]);
+            System.out.println();
+
+
+
+  }
+}
+
 }

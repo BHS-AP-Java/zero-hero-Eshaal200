@@ -35,12 +35,6 @@ public class Cake {
     int remainingHeight = Math.max(fullHeight - slicesEaten, 1);
     int candleCount = Math.min(age, 15);
 
-
-
-
-
-
-
     // colors!
 
     // cake flavor/color
@@ -148,7 +142,6 @@ public class Cake {
 
     System.out.println("This cake is for... " + name + " who is " + age + " years old! ");
   }
-
 
   public void draw(Table t) {
     t.draw();
