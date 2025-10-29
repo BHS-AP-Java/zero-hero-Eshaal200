@@ -22,10 +22,9 @@ public class Cake {
     this.icing = icing;
   }
 
-  public Cake(String s , int n){
+  public Cake(String s, int n) {
     this.s = s;
     this.n = n;
-
   }
 
   // methods + start of cake drawing
@@ -35,6 +34,12 @@ public class Cake {
     int fullHeight = 7;
     int remainingHeight = Math.max(fullHeight - slicesEaten, 1);
     int candleCount = Math.min(age, 15);
+
+
+
+
+
+
 
     // colors!
 
@@ -144,16 +149,8 @@ public class Cake {
     System.out.println("This cake is for... " + name + " who is " + age + " years old! ");
   }
 
-  public void draw(){
-    System.out.println("silly draw for Cake!");
+
+  public void draw(Table t) {
+    t.draw();
   }
-
-  public void draw(Table t){
-    this.draw();
-    t.draw(legs, width);
-
-  }
-
-
-
 }
