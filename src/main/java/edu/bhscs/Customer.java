@@ -8,7 +8,7 @@ public class Customer {
     return;
   }
 
-  public void eatCake(Cake2 cake, PTSA ptsa) {
+  public void eatCake(Cake cake, PTSA ptsa) {
     System.out.println(name + " is buying a slice... ");
     System.out.println(name + " ate a slice of " + cake.flavor + " cake! ");
     cake.Slices();
@@ -19,5 +19,5 @@ public class Customer {
     return price;
   }
 
-  public void takeCake(Cake2 bakeCake) {}
+  public void takeCake(Cake bakeCake) {}
 }

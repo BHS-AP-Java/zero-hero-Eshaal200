@@ -13,7 +13,7 @@ package edu.bhscs;
 
 import java.util.ArrayList;
 
-public class Main {
+public class Main3 {
 
   public static void main(String[] args) {
 
@@ -50,7 +50,7 @@ public class Main {
 
     System.out.println("You hired " + chosenBaker.name + "!\n");
 
-    ArrayList<Cake2> bakedCakes = new ArrayList<>();
+    ArrayList<Cake> bakedCakes = new ArrayList<>();
     // choose a cake
     System.out.println(
         "Available Cakes: Chocolate cake, Vanilla cake, Strawberry Cake, Rubarb Cake ");
@@ -58,7 +58,7 @@ public class Main {
     System.out.println("You chose " + cakeChoice);
 
     int slices = Integer.parseInt(player.giveAnswer("How many slices?"));
-    Cake2 cake = chosenBaker.bakeCake(cakeChoice, 3, 2, "all-purpose", slices);
+    Cake cake = chosenBaker.bakeCake(cakeChoice, 3, 2, "all-purpose", slices);
 
     System.out.println("Your cake is ready!");
     System.out.println("Flavor: " + cake.getflavor());

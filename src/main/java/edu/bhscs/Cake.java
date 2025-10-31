@@ -1,149 +1,185 @@
 package edu.bhscs;
 
-public class Cake {
+// Eshaal Khan
+// P2
+// ITERATION
+// 10/28/2025
 
+/*
+ * DESCRIPTION: An iteration that prints out slices of cake (and quality of cake) based on what you want
+ * INPUT: number of slices, whatever baker you want
+ * OUTPUT: cake based off of slices and baker
+ * EDGE CASE: Quality?
+ */
+
+public class Cake {
   // fields and properties
 
-  String name;
-  int age;
-  String flavor;
-  String icing;
-  String s;
-  int n;
-  int legs;
-  int width;
+  public String flavor;
+  public int slices;
+  public String Flour;
+  public int eggs;
+  public int milk;
+  public String menu;
+  public int price;
+  public boolean frosting;
+  public int qualityMultiplier;
 
-  // constructor(?)
+  // constructors
 
-  public Cake(String name, int age, String flavor, String icing) {
-    this.name = name;
-    this.age = age;
+  public Cake(String flavor, int eggs, int milk, String flour, int slices) {
     this.flavor = flavor;
-    this.icing = icing;
+    this.eggs = eggs;
+    this.milk = milk;
+    this.Flour = flour;
+    this.frosting = false;
+    this.slices = slices;
   }
 
-  public Cake(String s, int n) {
-    this.s = s;
-    this.n = n;
+  // public Cake(String answer, Flour f) {
+
+  // }
+
+  // public Cake(String giveAnswer) {
+
+  // }
+
+  public Cake(String giveAnswer, Flour f, int skill) {}
+
+  // METHODS
+  void draw(Table t) {
+    System.out.println("I am drawing a cake");
   }
 
-  // methods + start of cake drawing
+  public void flavor() {
+    System.out.println("this cake has..." + flavor);
+  }
 
-  public void Cakedraw(int slicesEaten) {
-    int width = 10 + age;
-    int fullHeight = 7;
-    int remainingHeight = Math.max(fullHeight - slicesEaten, 1);
-    int candleCount = Math.min(age, 15);
+  // time to bake :")"
+  public void bake() {
+    System.out.println(" Lets bake the cake! " + flavor + " with " + slices + " slices yippeeee ");
+  }
 
-    // colors!
-
-    // cake flavor/color
-
-    String cakeColor, icingColor;
-    switch ((flavor.toLowerCase())) {
-      case "chocolate":
-        cakeColor = "\u001B[38;2;110;38;14m";
-        break; // brown
-      case "vanilla":
-        cakeColor = "\u001B[37m";
-        break;
-      case "strawberry":
-        cakeColor = "\u001B[35m";
-        break;
-      case "red velvet":
-        cakeColor = "\u001B[31m";
-        break;
-      case "mint":
-        cakeColor = "\u001B[32m";
-        break;
-      default:
-        cakeColor = "\u001B[38;2;110;38;14m"; // brown default
-        break;
+  public void Frosting() {
+    if (frosting) {
+      frosting = true;
+    } else {
+      System.out.println(" This " + flavor + "cake has frosting! ");
     }
+  }
 
-    // icing color
-
-    switch (icing.toLowerCase()) {
-      case "chocolate":
-        icingColor = "\u001B[33m";
-        break;
-      case "vanilla":
-        icingColor = "\u001B[97m";
-        break;
-      case "strawberry":
-        icingColor = "\u001B[95m";
-        break;
-      case "red velvet":
-        icingColor = "\u001B[91m";
-        break;
-      case "mint":
-        icingColor = "\u001B[92m";
-        break;
-      default:
-        icingColor = "\u001B[96m";
-        break;
+  public void Slices() {
+    if (slices > 0) {
+      slices--;
+      System.out.println("Slice eaten! Slices left:" + slices);
+    } else {
+      System.out.println("no slices left of" + flavor + "cake :(((");
     }
+  }
 
-    // candle color
+  public String menu() {
+    System.out.println(
+        "Strawberry cake, Rubarb cake, Red velvet cake, Chocolate cake, Vanilla cake");
+    return menu;
+  }
 
-    String candleColor = "\u001B[93m"; // bright yellow
-    String reset = "\u001B[0m";
+  public void server() {
+    System.out.println(
+        "serving " + flavor + "cake! " + (frosting ? "with frosting " : "without frosting "));
+  }
 
-    // candle flame *
+  public Cake(String flavor, int slices, int qualityMultiplier) {
+    this.flavor = flavor;
+    this.slices = slices;
+    this.qualityMultiplier = qualityMultiplier;
+    this.price = slices * 2 * qualityMultiplier;
+  }
 
-    if (candleCount > 0) {
-      int candleWidth = candleCount * 2 - 1;
-      int start = (width - candleWidth) / 2;
+  public Cake(String name, int age) {}
 
-      System.out.print(candleColor);
-      for (int i = 0; i < width; i++)
-        if (i >= start && (i - start) % 2 == 0 && (i - start) / 2 < candleCount)
-          System.out.print("*");
-        else System.out.print(" ");
+  public String getflavor() {
+    return flavor;
+  }
 
-      System.out.println();
+  public int getslices() {
+    return slices;
+  }
 
-      // candle stick |
+  public int getPrice() {
+    return Math.round(price * 100) / 100;
+  }
 
-      for (int i = 0; i < width; i++)
-        if (i >= start && (i - start) % 2 == 0 && (i - start) / 2 < candleCount)
-          System.out.print("|");
-        else System.out.print(" ");
+  public int getQualityMultiplier() {
+    return qualityMultiplier;
+  }
 
-      System.out.println();
-    }
+  // the draw method starts here :")
 
-    System.out.println(reset);
+  public void Cakedraw() {
+    int sliceWidth = 6;
+    int spacing = 2;
+    int triangleHeight = 3;
+    int bodyHeight = qualityMultiplier * 2;
 
-    // cake body
+    int cols = slices * (sliceWidth * spacing);
+    int rows = triangleHeight + bodyHeight + 1;
 
-    System.out.print(icingColor);
-    for (int i = 0; i < width; i++) System.out.print("/");
-    System.out.println(reset);
+    char[][] canvas = new char[rows][cols];
 
-    for (int row = 0; row < remainingHeight; row++) {
-      System.out.print(cakeColor + "*");
+    // 1. fill this canvas in with spaces
 
-      boolean isIcing = (row % 2 == 1);
+    for (int r = 0; r < rows; r++) for (int c = 0; c < cols; c++) canvas[r][c] = ' ';
 
-      for (int col = 0; col < width - 2; col++) {
-        System.out.print(isIcing ? icingColor + "=" + cakeColor : cakeColor + " ");
+    // triangle tops (icing)
+
+    for (int s = 0; s < slices; s++) {
+      int offset = s * (sliceWidth * spacing);
+
+      for (int t = 0; t < triangleHeight; t++) {
+        int start = offset + triangleHeight - t - 1;
+        int end = offset + triangleHeight + t + 1;
+        for (int c = start; c <= end && c < cols; c++) {
+          canvas[t][c] = '/';
+        }
       }
-      System.out.println(cakeColor + "*" + reset);
     }
 
-    // cake bottom
+    // draw the slices bodies
 
-    System.out.print(cakeColor);
+    for (int s = 0; s < slices; s++) {
+      int offset = s * (sliceWidth * spacing);
+      int topRow = triangleHeight;
+      int bottomRow = topRow + bodyHeight;
 
-    for (int i = 0; i < width; i++) System.out.print("*");
-    System.out.print(reset);
-    System.out.println();
+      // bodiesssss
 
-    System.out.println("This cake is for... " + name + " who is " + age + " years old! ");
-  }
+      for (int r = topRow; r < bottomRow && r < rows; r++)
+        for (int c = offset; c < offset + sliceWidth && c < cols; c++) canvas[r][c] = '#';
 
-  public void draw(Table t) {
-    t.draw();
+      // bottom
+
+      for (int c = offset; c < offset + sliceWidth && c < cols; c++) canvas[bottomRow][c] = '=';
+
+      // right wall
+
+      for (int r = topRow; r <= bottomRow && r < rows; r++) {
+        int wallCol = offset + sliceWidth;
+        if (wallCol < cols) canvas[r][wallCol] = '|';
+      }
+    }
+
+    // print the cake
+    System.out.println(
+        "\nCake: "
+            + flavor.toUpperCase()
+            + " ("
+            + slices
+            + " slices, Q = "
+            + qualityMultiplier
+            + " )");
+    for (int r = 0; r < rows; r++) {
+      for (int c = 0; c < cols; c++) System.out.print(canvas[r][c]);
+      System.out.println();
+    }
   }
 }
