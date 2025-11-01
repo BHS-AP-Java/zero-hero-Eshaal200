@@ -1,6 +1,6 @@
 package edu.bhscs;
 
-public class Table {
+public class Table implements tableCake {
   // properties
   int legs;
   int width;
@@ -12,9 +12,18 @@ public class Table {
     this.legs = legs;
     this.width = width;
     this.leg = "|";
-    this.top = "=";
+    this.top = "~";
 
-    System.out.println("The table is alive!");
+  }
+
+
+
+  public void setLegs(String leg) {
+    this.leg = leg;
+  }
+
+  public void setTop(String top) {
+    this.top = top;
   }
 
   public void draw(int legs, int width) {}
@@ -27,37 +36,26 @@ public class Table {
   }
 
   public void draw() {
-    for (int row = 0; row < 2; row++) {
-      System.out.print(top);
-      for (int j = 0; j < width; j++) {
-        System.out.print(top);
-      }
-      System.out.println(top);
-    }
+    // Substring implementation
+    StringBuilder pattern = new StringBuilder();
+    for (int i = 0; i < width; i++) pattern.append(top);
 
-    for (int i = 0; i < 3; i++) {
-      System.out.print(leg);
-      for (int j = 0; j < width; j++) {
-        System.out.print(" ");
-      }
-      System.out.println(leg);
-    }
+    System.out.println(pattern.substring(0, width));
 
-    for (int i = 0; i < legs; i++) {
-      System.out.print(leg);
-      for (int j = 0; j < width; j++) {
-        System.out.print(" ");
+    // table body with the % module
+
+    for (int row = 0; row < legs; row++) {
+      for (int cols = 0; cols < width; cols++) {
+        if (cols == 0 || cols == width - 1) {
+          System.out.print(leg);
+        } else if (row == 0 && cols % 2 == 0) {
+          System.out.print("~");
+        } else {
+          System.out.print(" ");
+        }
       }
 
-      System.out.println(leg);
+      System.out.println();
     }
-  }
-
-  public void setLegs(String leg) {
-    this.leg = leg;
-  }
-
-  public void setTop(String top) {
-    this.top = top;
   }
 }

@@ -50,7 +50,7 @@ public class Main3 {
 
     System.out.println("You hired " + chosenBaker.name + "!\n");
 
-    ArrayList<Cake> bakedCakes = new ArrayList<>();
+    ArrayList<kake> bakedCakes = new ArrayList<>();
     // choose a cake
     System.out.println(
         "Available Cakes: Chocolate cake, Vanilla cake, Strawberry Cake, Rubarb Cake ");
@@ -58,7 +58,7 @@ public class Main3 {
     System.out.println("You chose " + cakeChoice);
 
     int slices = Integer.parseInt(player.giveAnswer("How many slices?"));
-    Cake cake = chosenBaker.bakeCake(cakeChoice, 3, 2, "all-purpose", slices);
+    kake cake = chosenBaker.bakeCake(cakeChoice, 3, 2, "all-purpose", slices);
 
     System.out.println("Your cake is ready!");
     System.out.println("Flavor: " + cake.getflavor());

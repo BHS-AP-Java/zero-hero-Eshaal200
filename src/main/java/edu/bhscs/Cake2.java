@@ -10,8 +10,7 @@ public class Cake2 {
   String icing;
   String s;
   int n;
-  int legs;
-  int width;
+  Table t;
 
   // constructor(?)
 
@@ -143,7 +142,5 @@ public class Cake2 {
     System.out.println("This cake is for... " + name + " who is " + age + " years old! ");
   }
 
-  public void draw(Table t) {
-    t.draw();
-  }
+ 
 }

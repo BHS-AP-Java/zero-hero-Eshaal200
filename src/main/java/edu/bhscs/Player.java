@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Player {
   String name;
   Scanner s;
-  Cake userCake;
+  kake userCake;
   int accomplishments;
 
   public Player(String name) {
@@ -33,7 +33,7 @@ public class Player {
 
   }
 
-  public void payForCake(Cake cake) {
+  public void payForCake(kake cake) {
     System.out.println(name + " gives $" + cake.getPrice() + " to the baker.");
   }
 }

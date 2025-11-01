@@ -19,9 +19,9 @@ public class Bakers {
   // fields and properties
   // constructor
   // methods
-  Cake bakeCake(Player p) {
+  kake bakeCake(Player p) {
     this.p = p;
-    return new Cake(p.giveAnswer("What cake ya want?"), eggs, eggs, flavor, eggs);
+    return new kake(p.giveAnswer("What cake ya want?"), eggs, eggs, flavor, eggs);
   }
 
   // this is the fields, we have public String fields of flavor and flour and name
@@ -43,7 +43,7 @@ public class Bakers {
   // this is all done in a constructor, note: the types must go in the correct order that it was
   // made in or else it will not wor
 
-  public Cake bakeCake(String flavor, int eggs, int milk, String flour, int slices) {
+  public kake bakeCake(String flavor, int eggs, int milk, String flour, int slices) {
     System.out.println(
         name
             + " (Skill "
@@ -56,7 +56,7 @@ public class Bakers {
 
     int qualityMultiplier = 1 + (skill - 1) * 2;
 
-    return new Cake(flavor, slices, qualityMultiplier);
+    return new kake(flavor, slices, qualityMultiplier);
   }
 
   public int getskill() {

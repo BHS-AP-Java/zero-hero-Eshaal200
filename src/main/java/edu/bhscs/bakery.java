@@ -8,12 +8,12 @@ public class bakery {
   String menu = "Chocolate Cake, Strawberry cake, Rubarb cake, Vanilla cake";
   Bakers baker;
   String name;
-  Cake chocolate;
-  Cake strawberry;
-  Cake rubarb;
+  kake chocolate;
+  kake strawberry;
+  kake rubarb;
   int money;
   int quality = 5;
-  public ArrayList<Cake> Cakes;
+  public ArrayList<kake> Cakes;
   Chocolate Vanilla;
 
   // constructors
@@ -34,9 +34,9 @@ public class bakery {
   }
 
   // method
-  public Cake sellCakes(int money) {
+  public kake sellCakes(int money) {
     this.money += money;
-    Cake cakeBox = this.chocolate;
+    kake cakeBox = this.chocolate;
     this.chocolate = null;
     return cakeBox;
   }
@@ -47,7 +47,7 @@ public class bakery {
     this.money = 5;
   }
 
-  public void addCake(Cake c) {
+  public void addCake(kake c) {
     this.Cakes.add(c);
     System.out.println(c.getflavor() + " cake has been added to the bakery!");
   }
