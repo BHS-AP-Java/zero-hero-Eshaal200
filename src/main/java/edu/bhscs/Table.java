@@ -13,10 +13,7 @@ public class Table implements tableCake {
     this.width = width;
     this.leg = "|";
     this.top = "~";
-
   }
-
-
 
   public void setLegs(String leg) {
     this.leg = leg;
@@ -42,20 +39,30 @@ public class Table implements tableCake {
 
     System.out.println(pattern.substring(0, width));
 
-    // table body with the % module
+    // you need atleast 2 legs, anything less will print this message
+    if (legs < 2) {
+      System.out.println("You need at least 2 legs for a table!");
+      return;
+    }
 
-    for (int row = 0; row < legs; row++) {
-      for (int cols = 0; cols < width; cols++) {
-        if (cols == 0 || cols == width - 1) {
-          System.out.print(leg);
-        } else if (row == 0 && cols % 2 == 0) {
-          System.out.print("~");
+    // sets height and also makes sure the top of the table doesnt hang out when typing a # of legs
+    // bigger than 3
+    int spacing = width / legs;
+
+    int legHeight = 3;
+
+    // table body with the % module
+    // can print multiple legs
+    for (int row = 0; row < legHeight; row++) {
+      StringBuilder line = new StringBuilder();
+      for (int col = 0; col < width; col++) {
+        if (col % spacing == 0) {
+          line.append(leg);
         } else {
-          System.out.print(" ");
+          line.append(" ");
         }
       }
-
-      System.out.println();
+      System.out.println(line.toString());
     }
   }
 }

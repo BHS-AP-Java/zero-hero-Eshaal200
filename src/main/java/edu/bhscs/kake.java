@@ -179,6 +179,4 @@ public class kake {
       System.out.println();
     }
   }
-
- 
 }

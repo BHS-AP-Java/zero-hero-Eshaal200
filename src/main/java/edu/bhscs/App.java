@@ -14,7 +14,7 @@ public class App {
    * OUTPUT: a cake on a table
    * EDGE CASE: the number of candles, height of cake, height of table(?)
    * // NOTE: Candles arent totally centered I tried messing with the value as much as possible and even tried converting the
-   * ints to doubles to use decimal values (it just removed the candles). 
+   * ints to doubles to use decimal values (it just removed the candles).
    */
 
   public static void main(String[] args) {
@@ -23,7 +23,7 @@ public class App {
 
   public static void date10_31() {
     Baker bob = new Baker("Bob");
-    Table t = new Table(3, 15);
+    Table t = new Table(7, 15);
     Cake bDay = bob.bakes(5, "Suzzie");
     bDay.draw(t);
   }

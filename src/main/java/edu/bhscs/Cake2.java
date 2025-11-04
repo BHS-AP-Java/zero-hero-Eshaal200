@@ -141,6 +141,4 @@ public class Cake2 {
 
     System.out.println("This cake is for... " + name + " who is " + age + " years old! ");
   }
-
- 
 }
