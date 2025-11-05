@@ -6,6 +6,7 @@ public class Table implements tableCake {
   int width;
   String leg;
   String top;
+  public int getWidth;
 
   // constrcutors
   public Table(int legs, int width) {
@@ -14,6 +15,8 @@ public class Table implements tableCake {
     this.leg = "|";
     this.top = "~";
   }
+
+  // methods
 
   public void setLegs(String leg) {
     this.leg = leg;
@@ -25,7 +28,9 @@ public class Table implements tableCake {
 
   public void draw(int legs, int width) {}
 
-  // methods
+  public int getWidth() {
+    return this.width;
+  }
 
   public void drawTable() {
     setTop("=");

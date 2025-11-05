@@ -1,3 +1,4 @@
+
 package edu.bhscs;
 
 public class Cake implements tableCake {
@@ -10,62 +11,75 @@ public class Cake implements tableCake {
   int candles;
 
   // constructor
-  public Cake(Table t, String name, int age) {
+  public Cake(String name, int age) {
     this.name = name;
     this.age = age;
     this.candles = Math.min(age, 5);
   }
 
-  // methods
+  public int getOffset(Table t){
+    if ( t == null)
+    return 0;
+    int tableWidth = t.getWidth();
+    int offset = (tableWidth - width) / 2;
+
+
+    if ((tableWidth - width) % 2 != 0) {
+      offset += 1;
+    }
+    return (Math.max (0, offset));
+  }
+
+  //main draw method
   public void draw(Table t) {
-    if (t == null) return;
-
-    // offset to center cake on table
-    int offset = (t.width - width) / 2;
-    if (offset < 0) offset = 0;
-
-    // candle spacing
+    int offset = getOffset(t);
     int candleSpacing = 2;
     int candleWidth = candles * candleSpacing - 1;
     int candleStart = (width - candleWidth) / 2;
 
-    // --- candle flames ---
-    for (int i = 0; i < offset; i++) System.out.print(" ");
+    //candle flames
+    System.out.print(" ".repeat(offset));
     for (int i = 0; i < width; i++) {
-      if (i >= candleStart
-          && (i - candleStart) % candleSpacing == 0
-          && (i - candleStart) / candleSpacing < candles) System.out.print("*");
-      else System.out.print(" ");
+      if (i >= candleStart && (i - candleStart) % candleSpacing == 0
+          && (i - candleStart) / candleSpacing < candles)
+        System.out.print("*");
+      else
+        System.out.print(" ");
     }
     System.out.println();
 
-    // --- candle sticks ---
-    for (int i = 0; i < offset; i++) System.out.print(" ");
+    // candle sticks
+    System.out.print(" ".repeat(offset));
     for (int i = 0; i < width; i++) {
-      if (i >= candleStart
-          && (i - candleStart) % candleSpacing == 0
-          && (i - candleStart) / candleSpacing < candles) System.out.print("|");
-      else System.out.print(" ");
+      if (i >= candleStart && (i - candleStart) % candleSpacing == 0
+          && (i - candleStart) / candleSpacing < candles)
+        System.out.print("|");
+      else
+        System.out.print(" ");
     }
     System.out.println();
 
-    // --- cake body ---
+    // cake body
     for (int r = 0; r < height; r++) {
-      for (int i = 0; i < offset; i++) System.out.print(" ");
+      System.out.print(" ".repeat(offset));
       System.out.print("*");
-      for (int c = 0; c < width - 2; c++) System.out.print((r % 2 == 1) ? "=" : " ");
+      for (int c = 0; c < width - 2; c++) {
+        // Alternate icing lines using modulus
+        System.out.print((r % 2 == 1) ? "=" : " ");
+      }
       System.out.println("*");
     }
 
-    // --- cake bottom icing line ---
-    for (int i = 0; i < offset; i++) System.out.print(" ");
-    for (int i = 0; i < width; i++) System.out.print("-");
-    System.out.println();
+    // cake bottom icing line
+    System.out.print(" ".repeat(offset));
+    System.out.println("-".repeat(width));
 
-    // draw table
     t.draw();
   }
 
-  @Override
-  public void draw() {}
+  public void draw() {
+    draw();
+  }
+
+
 }

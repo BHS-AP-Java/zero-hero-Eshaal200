@@ -53,6 +53,6 @@ public class Baker {
 
   public Cake bakes(int age, String name) {
 
-    return new Cake(null, name, age);
+    return new Cake(name, age);
   }
 }

@@ -1,6 +1,6 @@
 package edu.bhscs;
 
-public class Cake2 {
+public class desert {
 
   // fields and properties
 
@@ -14,14 +14,14 @@ public class Cake2 {
 
   // constructor(?)
 
-  public Cake2(String name, int age, String flavor, String icing) {
+  public desert(String name, int age, String flavor, String icing) {
     this.name = name;
     this.age = age;
     this.flavor = flavor;
     this.icing = icing;
   }
 
-  public Cake2(String s, int n) {
+  public desert(String s, int n) {
     this.s = s;
     this.n = n;
   }
