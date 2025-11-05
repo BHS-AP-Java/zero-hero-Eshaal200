@@ -42,7 +42,7 @@ public class Table implements tableCake {
     StringBuilder pattern = new StringBuilder();
     for (int i = 0; i < width; i++) pattern.append(top);
 
-    System.out.println(pattern.substring(0, width));
+    System.out.println(pattern.substring(0, width - 1));
 
     // you need atleast 2 legs, anything less will print this message
     if (legs < 2) {
@@ -52,9 +52,9 @@ public class Table implements tableCake {
 
     // sets height and also makes sure the top of the table doesnt hang out when typing a # of legs
     // bigger than 3
-    int spacing = width / legs;
+    int spacing = width  / (legs - 1);
 
-    int legHeight = 3;
+    int legHeight = 4;
 
     // table body with the % module
     // can print multiple legs
@@ -69,5 +69,20 @@ public class Table implements tableCake {
       }
       System.out.println(line.toString());
     }
+
+  }
+
+// offset the legs
+  public void draw(int offset) {
+    if (legs == 2){
+      for(int i = 0; i < offset; i++);
+
+
+
+    }
+
+
+
+
   }
 }

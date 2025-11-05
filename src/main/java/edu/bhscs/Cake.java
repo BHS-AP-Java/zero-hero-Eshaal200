@@ -1,4 +1,3 @@
-
 package edu.bhscs;
 
 public class Cake implements tableCake {
@@ -14,48 +13,44 @@ public class Cake implements tableCake {
   public Cake(String name, int age) {
     this.name = name;
     this.age = age;
-    this.candles = Math.min(age, 5);
+    this.candles = Math.min(age, 8);
   }
 
-  public int getOffset(Table t){
-    if ( t == null)
-    return 0;
+  public int getOffset(Table t) {
+    if (t == null) return 0;
     int tableWidth = t.getWidth();
     int offset = (tableWidth - width) / 2;
-
 
     if ((tableWidth - width) % 2 != 0) {
       offset += 1;
     }
-    return (Math.max (0, offset));
+    return (Math.max(0, offset));
   }
 
-  //main draw method
+  // main draw method
   public void draw(Table t) {
     int offset = getOffset(t);
     int candleSpacing = 2;
     int candleWidth = candles * candleSpacing - 1;
     int candleStart = (width - candleWidth) / 2;
 
-    //candle flames
+    // candle flames
     System.out.print(" ".repeat(offset));
     for (int i = 0; i < width; i++) {
-      if (i >= candleStart && (i - candleStart) % candleSpacing == 0
-          && (i - candleStart) / candleSpacing < candles)
-        System.out.print("*");
-      else
-        System.out.print(" ");
+      if (i >= candleStart
+          && (i - candleStart) % candleSpacing == 0
+          && (i - candleStart) / candleSpacing < candles) System.out.print("*");
+      else System.out.print(" ");
     }
     System.out.println();
 
     // candle sticks
     System.out.print(" ".repeat(offset));
     for (int i = 0; i < width; i++) {
-      if (i >= candleStart && (i - candleStart) % candleSpacing == 0
-          && (i - candleStart) / candleSpacing < candles)
-        System.out.print("|");
-      else
-        System.out.print(" ");
+      if (i >= candleStart
+          && (i - candleStart) % candleSpacing == 0
+          && (i - candleStart) / candleSpacing < candles) System.out.print("|");
+      else System.out.print(" ");
     }
     System.out.println();
 
@@ -80,6 +75,4 @@ public class Cake implements tableCake {
   public void draw() {
     draw();
   }
-
-
 }
