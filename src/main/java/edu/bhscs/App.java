@@ -23,7 +23,7 @@ public class App {
 
   public static void date10_31() {
     Baker bob = new Baker("Bob");
-    Table t = new Table(5,30);
+    Table t = new Table(5, 30);
     Cake bDay = bob.bakes(5, "Suzzie");
     bDay.draw(t);
   }

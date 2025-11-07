@@ -1,6 +1,6 @@
 package edu.bhscs;
 
-public class Table implements tableCake {
+public class Table implements Offsetable {
   // properties
   int legs;
   int width;
@@ -52,7 +52,7 @@ public class Table implements tableCake {
 
     // sets height and also makes sure the top of the table doesnt hang out when typing a # of legs
     // bigger than 3
-    int spacing = width  / (legs - 1);
+    int spacing = width / (legs - 1);
 
     int legHeight = 4;
 
@@ -69,20 +69,15 @@ public class Table implements tableCake {
       }
       System.out.println(line.toString());
     }
-
   }
 
-// offset the legs
+  // offset the legs
   public void draw(int offset) {
-    if (legs == 2){
-      for(int i = 0; i < offset; i++);
-
-
-
+    if (legs == 2) {
+      for (int i = 0; i < offset; i++)
+        ;
     }
-
-
-
-
   }
+
+  public void draw(Offsetable below) {}
 }

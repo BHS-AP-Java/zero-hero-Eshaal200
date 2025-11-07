@@ -1,6 +1,6 @@
 package edu.bhscs;
 
-public class Cake implements tableCake {
+public class Cake implements Offsetable {
 
   // properties
   String name;
@@ -75,4 +75,11 @@ public class Cake implements tableCake {
   public void draw() {
     draw();
   }
+
+  public int getWidth() {
+    return width;
+    // replace later
+  }
+
+  public void draw(Offsetable below) {}
 }

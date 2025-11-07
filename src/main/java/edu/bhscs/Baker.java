@@ -3,7 +3,7 @@ package edu.bhscs;
 public class Baker {
   // properties and fields
   Player p;
-  Flour f;
+  //Flour f;
   Store placeOfWork;
   int cash;
   String name;
@@ -40,7 +40,7 @@ public class Baker {
       System.out.println("you get an okay cake");
     }
 
-    return new kake(answer, this.f, this.skill);
+    return new kake(answer, this.skill);
   }
 
   void takeJob(Store bakery) {
