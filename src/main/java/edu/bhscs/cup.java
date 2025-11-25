@@ -1,34 +1,61 @@
 package edu.bhscs;
 
-public class cup {
+public class cup implements Offsetable {
 
-  int height = 8;
+  int height = 4;
   int width = 15;
 
 
 
-// rim of the cup
-public void  draw(){
-for( int i = 0; i < width; i++){
-  System.out.print("-");
+  // rim of the cup
+  public void draw() {
+    for (int i = 0; i < width; i++) {
+      System.out.print("-");
+    }
+    System.out.println();
+
+
+    // length of the cup
+    for (int i = 0; i < height; i++) {
+      System.out.print("|");
+
+      //spacing
+      for (int c = 0; c < width - 2; c++) {
+        System.out.print(" ");
+      }
+      System.out.println("|");
+      System.out.println();
+    }
+
+    // bottom of the cup
+    for (int i = 0; i < width; i++) {
+      if (height < width) {
+        System.out.print("-");
+      }
+      else{
+        System.out.print("");
+      }
+    }
+
+    System.out.println();
+
+  }
+
+
+
+  @Override
+  public int getWidth() {
+    return width;
+  }
+
+
+
+
+  public void draw(Offsetable below) {
+  }
+
+
+
 }
-System.out.println();
-
-// length of the cup
-for(int i = 0; i < height; i++){
-  System.out.print("|");
-  System.out.println();
-}
-// bottom of the cup
-
-for(int i = 0; i < width; i++);{
-  System.out.print("-");
-}
-
-}
-
-}
-
-
 
 

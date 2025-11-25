@@ -3,7 +3,7 @@ package edu.bhscs;
 public class Baker {
   // properties and fields
   Player p;
-  //Flour f;
+  // Flour f;
   Store placeOfWork;
   int cash;
   String name;
