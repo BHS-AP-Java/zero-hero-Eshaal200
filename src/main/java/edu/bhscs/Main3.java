@@ -52,8 +52,7 @@ public class Main3 {
 
     ArrayList<kake> bakedCakes = new ArrayList<>();
     // choose a cake
-    System.out.println(
-        "Available Cakes: Chocolate cake, Vanilla cake, Strawberry Cake, Rubarb Cake ");
+    kake.menu();
     String cakeChoice = player.giveAnswer("Which cake ya want");
     System.out.println("You chose " + cakeChoice);
 

@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Main3",
+      "request": "launch",
+      "mainClass": "edu.bhscs.Main3",
+      "projectName": "ap-java-starter"
+    },
+    {
+      "type": "java",
       "name": "CastingToInt",
       "request": "launch",
       "mainClass": "edu.bhscs.CastingToInt",

@@ -25,6 +25,8 @@ public class kake {
   public boolean frosting;
   public int qualityMultiplier;
 
+
+  public String colorCode = ASI.RESET;
   // constructors
 
   public kake(String flavor, int eggs, int milk, String flour, int slices) {
@@ -34,15 +36,36 @@ public class kake {
     this.Flour = flour;
     this.frosting = false;
     this.slices = slices;
+
+    applyColor();
+
+
   }
 
-  // public Cake(String answer, Flour f) {
+  private void applyColor(){
+    switch (flavor.toLowerCase()) {
+      case "chocolate cake":
+        colorCode = ASI.Chocolate;
+        break;
+      case "vanilla cake":
+        colorCode = ASI.Vanilla;
+        break;
+      case "strawberry cake":
+        colorCode = ASI.Strawberry;
+        break;
+      case "red velvet cake":
+        colorCode = ASI.RedVelvet;
+        break;
+      case "mint cake":
+        colorCode = ASI.Mint;
+        break;
+      default:
+        colorCode = ASI.RESET;
+        break;
+    }
 
-  // }
+  }
 
-  // public Cake(String giveAnswer) {
-
-  // }
 
   public kake(String giveAnswer, Flour f, int skill) {}
 
@@ -74,11 +97,16 @@ public class kake {
     }
   }
 
-  public String menu() {
-    System.out.println(
-        "Strawberry cake, Rubarb cake, Red velvet cake, Chocolate cake, Vanilla cake");
-    return menu;
-  }
+    public static void menu (){
+      System.out.println(
+        ASI.Chocolate + "Chocolate Cake" + ASI.RESET + ", " +
+        ASI.Vanilla + "Vanilla Cake" + ASI.RESET + ", " +
+        ASI.Strawberry + "Strawberry Cake" + ASI.RESET + ", " +
+        ASI.RedVelvet + " Red Velvet Cake" + ASI.RESET + ", " +
+        ASI.Mint + "Mint Cake" + ASI.RESET + ","
+      );
+    }
+
 
   public void server() {
     System.out.println(
@@ -90,7 +118,15 @@ public class kake {
     this.slices = slices;
     this.qualityMultiplier = qualityMultiplier;
     this.price = slices * 2 * qualityMultiplier;
-  }
+
+    applyColor();
+
+
+
+
+    }
+
+
 
   public kake(String name, int age) {}
 
@@ -109,6 +145,8 @@ public class kake {
   public int getQualityMultiplier() {
     return qualityMultiplier;
   }
+
+
 
   // the draw method starts here :")
 
@@ -175,8 +213,9 @@ public class kake {
             + qualityMultiplier
             + " )");
     for (int r = 0; r < rows; r++) {
+      System.out.print(colorCode);
       for (int c = 0; c < cols; c++) System.out.print(canvas[r][c]);
-      System.out.println();
+      System.out.println(ASI.RESET);
     }
   }
 }
