@@ -68,12 +68,36 @@ public class Bakers {
     return new kake(flavor, slices, qualityMultiplier);
   }
 
+  // I passed the kake object as a parameter in the cakePrice method to use its properties slices
+  // and qualityMultiplier. I also use the costUpgrade from the baker class to add to slices *
+  // multiplier. I did not pass slices and qualityMultiplier as parameters because that would
+  // duplicate information and would be just duplicate information. So let's start with the
   //
+  // parameter kake. This is a class with properties that I need. I first declared slices as an int
+  // in kake. It is stored as an integer. Then in the constructors, I do this.slices = slices; the
+  // reason why I do this is because I am storing it as memory. this.slices is where slices are
+  // stored and now kake remembers how many slices the user asked for, it is stored memory. Same
+  // with qualityMultiplier, I first declared it into kake, and I stored that as an int too. Then I
+  // wrote this.qualityMultiplier = qualityMultiplier; this is so the memory of qualityMultiplier is
+  // remembered by kake and won’t call some random number or no number at all, it will call the
+  // number the user inputs.
+
+  // Then I use it in the method cakePrice. Methods are like what happens in
+  // the background. It's like how I move my hand to get a drink of water, there are neurons firing
+  // messages that I need to pick up my hand and then pick up the drink. So since I need cakePrice I
+  // need to multiply the amount of cake slices with quality multiplier PLUS the costUpgrade for
+  // each baker.
+  
+  // This wont happen in main 3 because main 3 is where you implement the method, where
+  // you call it. Going back to the brain/human analogy, this is me physically picking up the water.
+  // It is the output of my neurons firing to pick up my water. So when I think about it I pick my
+  // water. The main codespace is me thinking (where we call our method) and the terminal is the
+  // action doing it, so then the price is finally displayed. (with print-lns of course).
+
   public int calculatedPrice(kake cake) {
     int cakePrice = 4;
     return (cakePrice * cake.getslices() * cake.getQualityMultiplier()) + costUpgrade;
   }
-
 
   public void hasAllergies(String eggAllergy, String flourAllergy, String milkAllergy) {
 

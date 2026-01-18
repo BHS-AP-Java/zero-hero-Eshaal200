@@ -23,7 +23,6 @@ public class kake {
 
   public int qualityMultiplier;
 
-
   public String colorCode = ASI.RESET;
 
   // constructors
@@ -79,15 +78,10 @@ public class kake {
     this.slices = slices;
     this.qualityMultiplier = qualityMultiplier;
 
-
     applyColor();
   }
 
-  public kake(String name, int age) {
-
-  }
-
-
+  public kake(String name, int age) {}
 
   public kake(String giveAnswer, String eggs, String flour, String milk, String flavor) {}
 
@@ -98,7 +92,6 @@ public class kake {
   public int getslices() {
     return slices;
   }
-
 
   public int getQualityMultiplier() {
     return qualityMultiplier;

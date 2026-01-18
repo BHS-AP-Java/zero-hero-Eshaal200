@@ -62,8 +62,6 @@ public class Main3 {
       return;
     }
 
-
-
     kake cake = chosenBaker.bakeCake(cakeChoice, 3, 2, "all-purpose", slices);
 
     int totalPrice = chosenBaker.calculatedPrice(cake);
@@ -91,7 +89,13 @@ public class Main3 {
     cake.Cakedraw();
     System.out.println();
     System.out.println(
-        "here is your "  + cakeChoice  + " baked by " + chosenBaker.name + " with a payment of " + totalPrice    + "$");
+        "here is your "
+            + cakeChoice
+            + " baked by "
+            + chosenBaker.name
+            + " with a payment of "
+            + totalPrice
+            + "$");
     System.out.println();
   }
 }
