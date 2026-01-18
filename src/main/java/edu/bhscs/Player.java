@@ -33,7 +33,7 @@ public class Player {
 
   }
 
-  public void payForCake(kake cake) {
-    System.out.println(name + " gives $" + cake.getPrice() + " to the baker.");
-  }
+  // public void payForCake(kake cake) {
+  // System.out.println(name + " gives $" + cake.getPrice() + " to the baker.");
+  // }
 }

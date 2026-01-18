@@ -50,21 +50,48 @@ public class Main3 {
 
     System.out.println("You hired " + chosenBaker.name + "!\n");
 
-    ArrayList<kake> bakedCakes = new ArrayList<>();
     // choose a cake
     kake.menu();
     String cakeChoice = player.giveAnswer("Which cake ya want");
     System.out.println("You chose " + cakeChoice);
 
     int slices = Integer.parseInt(player.giveAnswer("How many slices?"));
+    if (slices > 20) {
+      System.out.println("Whoa too many slices #DIABETESISCALLING (try again with less than 20) ");
+
+      return;
+    }
+
+
+
     kake cake = chosenBaker.bakeCake(cakeChoice, 3, 2, "all-purpose", slices);
 
-    System.out.println("Your cake is ready!");
-    System.out.println("Flavor: " + cake.getflavor());
-    System.out.println("Slices: " + cake.getslices());
-    System.out.println("Quality multiplier: " + cake.getQualityMultiplier());
+    int totalPrice = chosenBaker.calculatedPrice(cake);
+
+    System.out.println();
+    System.out.println("please answer the following with yes/no ");
     System.out.println();
 
+    String eggAllergy = player.giveAnswer("Are you allergic to eggs? ");
+    String flourAllergy = player.giveAnswer("Are you allergic to flour? ");
+    String milkAllergy = player.giveAnswer("Are you allergic to milk? ");
+
+    chosenBaker.hasAllergies(eggAllergy, flourAllergy, milkAllergy);
+
+    System.out.println();
+    player.giveAnswer("Your cake is ready!: ");
+
+    System.out.println("Flavor: " + cake.getflavor());
+    System.out.println("Slices: " + cake.getslices());
+    chosenBaker.IngredientsInfo();
+    System.out.println();
+    System.out.println("Quality multiplier: " + cake.getQualityMultiplier());
+    System.out.println("Price: " + totalPrice + "$");
+
     cake.Cakedraw();
+    System.out.println();
+    System.out.println(
+        "here is your "  + cakeChoice  + " baked by " + chosenBaker.name + " with a payment of " + totalPrice    + "$");
+    System.out.println();
   }
 }

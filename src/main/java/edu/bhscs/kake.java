@@ -6,9 +6,8 @@ package edu.bhscs;
 // 10/28/2025
 
 /*
- * DESCRIPTION: An iteration that prints out slices of cake (and quality of cake) based on what you want
- * INPUT: number of slices, whatever baker you want
- * OUTPUT: cake based off of slices and baker
+ * DESCRIPTION: An iteration that prints out slices of cake (and quality of cake) based on what you
+ * want INPUT: number of slices, whatever baker you want OUTPUT: cake based off of slices and baker
  * EDGE CASE: Quality?
  */
 
@@ -18,31 +17,94 @@ public class kake {
   public String flavor;
   public int slices;
   public String Flour;
-  public int eggs;
-  public int milk;
+  public String eggs;
+  public String milk;
   public String menu;
-  public int price;
-  public boolean frosting;
+
   public int qualityMultiplier;
 
 
   public String colorCode = ASI.RESET;
+
   // constructors
 
-  public kake(String flavor, int eggs, int milk, String flour, int slices) {
+  public kake(String giveAnswer, Flour f, int skill) {}
+
+  // METHODS
+
+  public void flavor() {
+    System.out.println("this cake has..." + flavor);
+  }
+
+  // time to bake :")"
+  public void bake() {
+    System.out.println(" Lets bake the cake! " + flavor + " with " + slices + " slices yippeeee ");
+  }
+
+  public void Slices() {
+    if (slices > 0) {
+      slices--;
+      System.out.println("Slice eaten! Slices left:" + slices);
+    } else {
+      System.out.println("no slices left of" + flavor + "cake :(((");
+    }
+  }
+
+  public static void menu() {
+    System.out.println(
+        ASI.Chocolate
+            + "Chocolate Cake"
+            + ASI.RESET
+            + ", "
+            + ASI.Vanilla
+            + "Vanilla Cake"
+            + ASI.RESET
+            + ", "
+            + ASI.Strawberry
+            + "Strawberry Cake"
+            + ASI.RESET
+            + ", "
+            + ASI.RedVelvet
+            + " Red Velvet Cake"
+            + ASI.RESET
+            + ", "
+            + ASI.Mint
+            + "Mint Cake"
+            + ASI.RESET
+            + ",");
+  }
+
+  public kake(String flavor, int slices, int qualityMultiplier) {
     this.flavor = flavor;
-    this.eggs = eggs;
-    this.milk = milk;
-    this.Flour = flour;
-    this.frosting = false;
     this.slices = slices;
+    this.qualityMultiplier = qualityMultiplier;
+
 
     applyColor();
+  }
 
+  public kake(String name, int age) {
 
   }
 
-  private void applyColor(){
+
+
+  public kake(String giveAnswer, String eggs, String flour, String milk, String flavor) {}
+
+  public String getflavor() {
+    return flavor;
+  }
+
+  public int getslices() {
+    return slices;
+  }
+
+
+  public int getQualityMultiplier() {
+    return qualityMultiplier;
+  }
+
+  private void applyColor() {
     switch (flavor.toLowerCase()) {
       case "chocolate cake":
         colorCode = ASI.Chocolate;
@@ -61,102 +123,19 @@ public class kake {
         break;
       default:
         colorCode = ASI.RESET;
-        break;
-    }
-
-  }
-
-
-  public kake(String giveAnswer, Flour f, int skill) {}
-
-  // METHODS
-
-  public void flavor() {
-    System.out.println("this cake has..." + flavor);
-  }
-
-  // time to bake :")"
-  public void bake() {
-    System.out.println(" Lets bake the cake! " + flavor + " with " + slices + " slices yippeeee ");
-  }
-
-  public void Frosting() {
-    if (frosting) {
-      frosting = true;
-    } else {
-      System.out.println(" This " + flavor + "cake has frosting! ");
     }
   }
-
-  public void Slices() {
-    if (slices > 0) {
-      slices--;
-      System.out.println("Slice eaten! Slices left:" + slices);
-    } else {
-      System.out.println("no slices left of" + flavor + "cake :(((");
-    }
-  }
-
-    public static void menu (){
-      System.out.println(
-        ASI.Chocolate + "Chocolate Cake" + ASI.RESET + ", " +
-        ASI.Vanilla + "Vanilla Cake" + ASI.RESET + ", " +
-        ASI.Strawberry + "Strawberry Cake" + ASI.RESET + ", " +
-        ASI.RedVelvet + " Red Velvet Cake" + ASI.RESET + ", " +
-        ASI.Mint + "Mint Cake" + ASI.RESET + ","
-      );
-    }
-
-
-  public void server() {
-    System.out.println(
-        "serving " + flavor + "cake! " + (frosting ? "with frosting " : "without frosting "));
-  }
-
-  public kake(String flavor, int slices, int qualityMultiplier) {
-    this.flavor = flavor;
-    this.slices = slices;
-    this.qualityMultiplier = qualityMultiplier;
-    this.price = slices * 2 * qualityMultiplier;
-
-    applyColor();
-
-
-
-
-    }
-
-
-
-  public kake(String name, int age) {}
-
-  public String getflavor() {
-    return flavor;
-  }
-
-  public int getslices() {
-    return slices;
-  }
-
-  public int getPrice() {
-    return Math.round(price * 100) / 100;
-  }
-
-  public int getQualityMultiplier() {
-    return qualityMultiplier;
-  }
-
-
 
   // the draw method starts here :")
 
   public void Cakedraw() {
-    int sliceWidth = 6;
+    int slicesDraw = Math.min(slices, 20);
+    int sliceWidth = (slicesDraw > 12) ? 3 : 6;
     int spacing = 2;
     int triangleHeight = 3;
     int bodyHeight = qualityMultiplier * 2;
 
-    int cols = slices * (sliceWidth * spacing);
+    int cols = slicesDraw * (sliceWidth * spacing);
     int rows = triangleHeight + bodyHeight + 1;
 
     char[][] canvas = new char[rows][cols];
@@ -167,7 +146,7 @@ public class kake {
 
     // triangle tops (icing)
 
-    for (int s = 0; s < slices; s++) {
+    for (int s = 0; s < slicesDraw; s++) {
       int offset = s * (sliceWidth * spacing);
 
       for (int t = 0; t < triangleHeight; t++) {
@@ -181,7 +160,7 @@ public class kake {
 
     // draw the slices bodies
 
-    for (int s = 0; s < slices; s++) {
+    for (int s = 0; s < slicesDraw; s++) {
       int offset = s * (sliceWidth * spacing);
       int topRow = triangleHeight;
       int bottomRow = topRow + bodyHeight;

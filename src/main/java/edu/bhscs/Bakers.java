@@ -6,10 +6,11 @@ public class Bakers {
 
   public String flavor;
   public int slices;
-  public String flour;
-  public int eggs;
-  public int milk;
+  public String flourIngredients = "flour";
+  public String eggsIngredients = "eggs";
+  public String milkIngredients = "milk";
   public int qualityMultiplier; // the field
+  public int price;
 
   Player p;
   String name;
@@ -19,9 +20,17 @@ public class Bakers {
   // fields and properties
   // constructor
   // methods
-  kake bakeCake(Player p) {
+  kake bakeCake(
+      Player p, String flour, String milk, String eggs, int price, int slices, String flavor) {
     this.p = p;
-    return new kake(p.giveAnswer("What cake ya want?"), eggs, eggs, flavor, eggs);
+    this.flourIngredients = flour;
+    this.eggsIngredients = eggs;
+    this.milkIngredients = milk;
+    this.price = price;
+    this.slices = slices;
+    this.flavor = flavor;
+
+    return new kake(p.giveAnswer("What cake ya want?"), eggs, flour, milk, flavor);
   }
 
   // this is the fields, we have public String fields of flavor and flour and name
@@ -57,6 +66,36 @@ public class Bakers {
     int qualityMultiplier = 1 + (skill - 1) * 2;
 
     return new kake(flavor, slices, qualityMultiplier);
+  }
+
+  //
+  public int calculatedPrice(kake cake) {
+    int cakePrice = 4;
+    return (cakePrice * cake.getslices() * cake.getQualityMultiplier()) + costUpgrade;
+  }
+
+
+  public void hasAllergies(String eggAllergy, String flourAllergy, String milkAllergy) {
+
+    if (eggAllergy.equalsIgnoreCase("yes")) {
+      eggsIngredients = "Yogurt (subsitute)";
+    }
+
+    if (flourAllergy.equalsIgnoreCase("yes")) {
+      flourIngredients = "almond flour (subsitute)";
+    }
+
+    if (milkAllergy.equalsIgnoreCase("yes")) {
+      milkIngredients = "sweetened condensed milk (subsitute)";
+    }
+  }
+
+  public void IngredientsInfo() {
+    System.out.println("Ingredients: ");
+    System.out.println();
+    System.out.println(eggsIngredients);
+    System.out.println(flourIngredients);
+    System.out.println(milkIngredients);
   }
 
   public int getskill() {

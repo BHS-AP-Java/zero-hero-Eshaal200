@@ -6,7 +6,7 @@ public class cup implements Offsetable {
   int width = 15;
 
   void draw() {
-    this.draw(null);
+    // this.null? for some reason (fix class)
   }
 
   // rim of the cup
